@@ -2,11 +2,9 @@ package com.vjiazhi.shuiyinwang.splash;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.vjiazhi.shuiyinwang.splash.FragmentThree.OnCloseInterface;
 import com.vjiazhi.shuiyinwang.ui.ImgMainActivity;
-
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
 
 import android.content.Intent;
 import android.os.Bundle;

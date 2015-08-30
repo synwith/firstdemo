@@ -16,8 +16,8 @@ import android.widget.Toast;
 import com.alipay.sdk.app.PayTask;
 import com.vjiazhi.shuiying.alipay.PayResult;
 import com.vjiazhi.shuiying.alipay.SignUtils;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 public class PayDemoActivity extends FragmentActivity {
 

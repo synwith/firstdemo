@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.moutian.yinta"
+    package="com.moutian.shuiyinwang"
     android:versionCode="1"
     android:versionName="@string/versin_name" >
 

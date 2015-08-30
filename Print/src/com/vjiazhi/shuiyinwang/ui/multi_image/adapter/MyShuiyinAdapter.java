@@ -5,8 +5,8 @@ import java.util.List;
 import android.content.Context;
 import android.widget.ImageView;
 import com.vjiazhi.shuiyinwang.ui.multi_image.ViewHolder;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 
 

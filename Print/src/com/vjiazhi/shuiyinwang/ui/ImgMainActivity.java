@@ -83,8 +83,8 @@ import com.vjiazhi.shuiyinwang.utils.L;
 import com.vjiazhi.shuiyinwang.utils.LogPrint;
 import com.vjiazhi.shuiyinwang.utils.MD5Config;
 import com.vjiazhi.shuiyinwang.utils.MyConfig;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 @TargetApi(9)
 public class ImgMainActivity extends Activity implements
@@ -99,7 +99,7 @@ public class ImgMainActivity extends Activity implements
 	private static Bitmap mFirstLoadedImg = null;
 	private static Bitmap mBlurBackgroundImg = null;
 	private static Bitmap mLeftBottomImg = null;
-	private String m_strWaterMarkInfo = "示例水印-By印它";
+	private String m_strWaterMarkInfo = "示例水印-By水印王";
 	private String m_strCameraImgPathName = "";
 	boolean mIsImgUpdated = false;
 	private String mFileNameToSave = "";
@@ -178,7 +178,7 @@ public class ImgMainActivity extends Activity implements
 
 	public void exit() {
 		if ((System.currentTimeMillis() - exitTime) > 2000) {
-			Toast.makeText(getApplicationContext(), "再按一次退出印它",
+			Toast.makeText(getApplicationContext(), "再按一次退出水印王",
 					Toast.LENGTH_SHORT).show();
 			exitTime = System.currentTimeMillis();
 		} else {

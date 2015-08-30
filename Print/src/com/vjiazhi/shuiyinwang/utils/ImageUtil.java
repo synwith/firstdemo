@@ -52,7 +52,7 @@ public class ImageUtil {
 			Typeface typeface) {
 		mColor = color;
 		if (TextUtils.isEmpty(text)) {
-			text = "示例水印-by印它";
+			text = "示例水印-by水印王";
 		}
 		Rect rect = new Rect();
 		Paint p = new Paint(Paint.ANTI_ALIAS_FLAG); // 去除锯齿
@@ -136,7 +136,7 @@ public class ImageUtil {
 			Typeface typeface, Bitmap background) {
 		mColor = color;
 		if (TextUtils.isEmpty(text)) {
-			text = "示例水印-by印它";
+			text = "示例水印-by水印王";
 		}
 		Rect rect = new Rect();
 		Paint p = new Paint(Paint.ANTI_ALIAS_FLAG); // 去除锯齿

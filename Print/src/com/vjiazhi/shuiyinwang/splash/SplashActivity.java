@@ -4,9 +4,7 @@ import com.vjiazhi.shuiyinwang.ui.ImgMainActivity;
 import com.vjiazhi.shuiyinwang.ui.multi_image.bean.GetImageFolderSingleInstance;
 import com.vjiazhi.shuiyinwang.utils.L;
 import com.vjiazhi.shuiyinwang.utils.MyConfig;
-
-import com.moutian.yinta.R;
-
+import com.moutian.shuiyinwang.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;

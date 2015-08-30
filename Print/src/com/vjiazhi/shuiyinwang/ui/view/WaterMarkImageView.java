@@ -3,7 +3,8 @@ package com.vjiazhi.shuiyinwang.ui.view;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -22,12 +23,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.FloatMath;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
-import android.view.View.MeasureSpec;
-import android.widget.ImageView;
 
 public class WaterMarkImageView extends ScrollableImageView {
 	private final static String TAG = WaterMarkImageView.class.getSimpleName();

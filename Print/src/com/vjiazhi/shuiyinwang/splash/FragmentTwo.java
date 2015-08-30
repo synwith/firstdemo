@@ -1,8 +1,8 @@
 package com.vjiazhi.shuiyinwang.splash;
 
 import java.lang.reflect.Field;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -42,7 +42,7 @@ public class MyConfig {
 	}
 
 	public static String getNewText(Context context) {
-		return getStringFromSharePrefenrence(context, TEXT, "示例水印-By印它");
+		return getStringFromSharePrefenrence(context, TEXT, "示例水印-By水印王");
 	}
 
 	public static void setNewVersion(Context context, int versionCode) {
@@ -277,7 +277,7 @@ public class MyConfig {
 	// inSend.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 	// try {
 	// startActivity(Intent
-	// .createChooser(inSend, "分享自印它。"));
+	// .createChooser(inSend, "分享自水印王。"));
 	// } catch (android.content.ActivityNotFoundException ex) {
 	// // if no app handles it, do nothing
 	// }

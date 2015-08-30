@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import com.umeng.analytics.MobclickAgent;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 import android.app.Activity;
 import android.os.Bundle;

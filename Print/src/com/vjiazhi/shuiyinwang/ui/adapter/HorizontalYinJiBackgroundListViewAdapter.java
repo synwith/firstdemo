@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
 
 import com.vjiazhi.shuiyinwang.utils.BitmapUtil;
 

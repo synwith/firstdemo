@@ -18,8 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.umeng.analytics.MobclickAgent;
-
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
 
 import com.vjiazhi.shuiyinwang.ui.multi_image.ImageLoader;
 import com.vjiazhi.shuiyinwang.utils.MyConfig;

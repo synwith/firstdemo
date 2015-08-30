@@ -48,8 +48,8 @@ import com.vjiazhi.shuiyinwang.ui.ImgMainActivity;
 import com.vjiazhi.shuiyinwang.ui.adapter.GridViewAdapter;
 import com.vjiazhi.shuiyinwang.ui.multi_image.adapter.MyShuiyinAdapter;
 import com.vjiazhi.shuiyinwang.ui.multi_image.adapter.SharePicturesAdapter;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 
 public class SharePicturesActivity extends Activity  {

@@ -7,8 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
 
 import com.vjiazhi.shuiyinwang.ui.multi_image.bean.ImageFloder;
 

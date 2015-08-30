@@ -1,5 +1,5 @@
 package com.vjiazhi.shuiying.alipay;
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;

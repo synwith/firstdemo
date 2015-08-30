@@ -32,9 +32,8 @@ import com.vjiazhi.shuiyinwang.ui.multi_image.adapter.MyAdapter;
 import com.vjiazhi.shuiyinwang.ui.multi_image.adapter.MyAdapter.AdapterItemListener;
 import com.vjiazhi.shuiyinwang.ui.multi_image.bean.GetImageFolderSingleInstance;
 import com.vjiazhi.shuiyinwang.ui.multi_image.bean.ImageFloder;
-import com.vjiazhi.shuiyinwang.utils.L;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 
 public class MultiImageActivity extends Activity implements OnImageDirSelected,

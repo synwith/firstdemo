@@ -3,8 +3,8 @@ package com.vjiazhi.shuiyinwang.ui.view;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UmengUpdateListener;
 import com.umeng.update.UpdateResponse;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 import com.vjiazhi.shuiyinwang.ui.AboutAppActivity;
 import com.vjiazhi.shuiyinwang.ui.ShuiyinPicturesActivity;

@@ -17,7 +17,7 @@ import com.alipay.sdk.app.PayTask;
 import com.vjiazhi.shuiying.alipay.PayResult;
 import com.vjiazhi.shuiying.alipay.SignUtils;
 
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
 
 public class PayDemoActivity extends FragmentActivity {
 

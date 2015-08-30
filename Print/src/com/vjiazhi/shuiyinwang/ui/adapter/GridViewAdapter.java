@@ -1,5 +1,6 @@
 package com.vjiazhi.shuiyinwang.ui.adapter;
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

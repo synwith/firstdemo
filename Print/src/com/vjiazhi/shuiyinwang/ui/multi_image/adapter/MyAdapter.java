@@ -10,8 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import com.vjiazhi.shuiyinwang.ui.multi_image.ViewHolder;
 import com.vjiazhi.shuiyinwang.utils.L;
-
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
 
 public class MyAdapter extends CommonAdapter<File> {
 

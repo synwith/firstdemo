@@ -2,7 +2,7 @@
 <resources>
     
 	<string name="UMBreak_Network">Please make sure you are connected to internet,update failed</string>
-	<string name="UMUpdateTitle">印它震撼新版本</string>
+	<string name="UMUpdateTitle">水印王震撼新版本</string>
 	<string name="UMNewVersion">最新: </string>
 	<string name="UMUpdateContent">更新内容：</string>
 	<string name="UMUpdateSize">Update size: </string>

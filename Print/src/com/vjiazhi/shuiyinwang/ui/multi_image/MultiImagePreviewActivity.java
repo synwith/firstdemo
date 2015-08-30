@@ -20,8 +20,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.umeng.analytics.MobclickAgent;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 import com.vjiazhi.shuiyinwang.ui.multi_image.adapter.MyAdapter;
 import com.vjiazhi.shuiyinwang.utils.L;

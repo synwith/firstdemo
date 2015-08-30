@@ -10,8 +10,8 @@
  * @version: V1.0   
  */
 package com.vjiazhi.shuiyinwang.ui.view;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 
 import android.app.Fragment;

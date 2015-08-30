@@ -32,8 +32,8 @@ import com.vjiazhi.shuiyinwang.ui.multi_image.adapter.MyShuiyinAdapter;
 import com.vjiazhi.shuiyinwang.ui.multi_image.bean.GetImageFolderSingleInstance;
 import com.vjiazhi.shuiyinwang.ui.multi_image.bean.ImageFloder;
 import com.vjiazhi.shuiyinwang.utils.L;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 
 public class ShuiyinBitmapActivity extends Activity implements

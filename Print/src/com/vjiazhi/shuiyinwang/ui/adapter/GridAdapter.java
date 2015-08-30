@@ -3,7 +3,8 @@ package com.vjiazhi.shuiyinwang.ui.adapter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import com.moutian.yinta.R;
+import com.moutian.shuiyinwang.R;
+
 import com.vjiazhi.shuiyinwang.utils.BitmapUtil;
 import android.content.Context;
 import android.graphics.Bitmap;

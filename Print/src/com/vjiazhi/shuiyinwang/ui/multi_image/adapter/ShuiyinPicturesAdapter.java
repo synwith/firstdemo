@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import com.vjiazhi.shuiyinwang.ui.multi_image.ViewHolder;
+import com.moutian.shuiyinwang.R;
 
-import com.moutian.yinta.R;
 
 
 public class ShuiyinPicturesAdapter extends CommonAdapter<File> {
