@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000" >
+
+    <RelativeLayout
+        android:id="@+id/title_tupian"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_action_bar_height"
+        android:background="#0a9398"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/picture_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/dialog_button_selector"
+            android:text="完成"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/picture_title"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/title_word_black"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/id_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_tupian"
+        android:cacheColorHint="@android:color/transparent"
+        android:clipChildren="true"
+        android:gravity="center"
+        android:horizontalSpacing="3dip"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="3dip" >
+    </GridView>
+
+    <RelativeLayout
+        android:id="@+id/id_bottom_ly"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:background="#770a9398"
+        android:clickable="true" >
+
+        <RelativeLayout
+            android:id="@+id/all_pics_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:clickable="true"
+            android:textColor="@drawable/btn_common_selector" >
+
+            <TextView
+                android:id="@+id/btn_choose_dir"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip"
+                android:maxLength="15"
+                android:text="所有图片"
+                android:textColor="@drawable/btn_common_selector"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/btn_choose_dir"
+                android:background="@drawable/all_pics" >
+            </TextView>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_review_images"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="预览"
+            android:textColor="@drawable/btn_common_selector" />
+    </RelativeLayout>
+
+</RelativeLayout>

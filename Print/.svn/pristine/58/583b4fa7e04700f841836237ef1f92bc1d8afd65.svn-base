@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/lay_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/base_action_bar_height"
+        layout="@layout/layout_title_bar" />
+
+    <com.vjiazhi.shuiyinwang.ui.view.HorizontalListView
+        android:id="@+id/img_horizon_listview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/horizon_listview_height"
+        android:layout_below="@+id/lay_title_bar" >
+    </com.vjiazhi.shuiyinwang.ui.view.HorizontalListView>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/img_horizon_listview"
+        android:layout_above="@+id/img_horizon_listview2"
+        android:background="#ffffff" />
+
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="立马水印" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="文字" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="颜色" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="位置" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.vjiazhi.shuiyinwang.ui.view.HorizontalListView
+        android:id="@+id/img_horizon_listview2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/horizon_listview_height"
+        android:layout_above="@+id/layout_bottom" >
+    </com.vjiazhi.shuiyinwang.ui.view.HorizontalListView>
+
+</RelativeLayout>

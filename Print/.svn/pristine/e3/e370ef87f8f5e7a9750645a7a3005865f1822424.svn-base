@@ -1,0 +1,59 @@
+package com.vjiazhi.shuiyinwang.ui.multi_image.adapter;
+
+import java.io.File;
+import java.util.List;
+import android.content.Context;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import com.vjiazhi.shuiyinwang.ui.multi_image.ViewHolder;
+import com.vjiazhi.yinji.R;
+
+
+/**
+ * 构建一个水印图片背景的Adapter
+ * @author nil
+ *
+ */
+public class MyShuiyinAdapter extends CommonAdapter<File> {
+	public interface AdapterItemListener {
+		void onAdapterItemClick(int mSelectedImageNum);
+
+		void onCameraEnter();
+	}
+
+	AdapterItemListener adapterItemListener;
+
+	public AdapterItemListener getAdapterItemListener() {
+		return adapterItemListener;
+	}
+
+	public void setAdapterItemListener(AdapterItemListener adapterItemListener) {
+		this.adapterItemListener = adapterItemListener;
+	}
+
+	public MyShuiyinAdapter(Context context, List<File> mDatas, int itemLayoutId,
+			String dirPath) {
+		super(context, mDatas, itemLayoutId);
+		// this.mDirPath = dirPath;
+	}
+
+	@Override
+	public void convert(final ViewHolder helper, final File item1) {
+		// 设置no_pic
+		helper.setImageResource(R.id.id_shuiyin_image,
+				R.drawable.listview_item_down);
+		// 设置no_selected
+		// helper.setImageResource(R.id.id_item_select,
+		// R.drawable.pics_unselected);
+		final String item = item1.getAbsolutePath();
+		String tempFileString = item;
+		final String dirFileString = tempFileString;
+		// 设置图片
+		final ImageView mImageView = helper.getView(R.id.id_shuiyin_image);
+
+			helper.setImageByUrl(R.id.id_shuiyin_image, dirFileString);
+			mImageView.setColorFilter(null);
+	}
+
+}

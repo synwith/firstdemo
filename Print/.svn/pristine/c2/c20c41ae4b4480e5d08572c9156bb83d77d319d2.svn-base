@@ -1,0 +1,126 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true" >
+
+    <LinearLayout
+        android:id="@+id/first_horizon_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:orientation="vertical" >
+
+        <include
+            android:id="@+id/lay_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/base_action_bar_height"
+            layout="@layout/layout_title_bar" />
+
+        <com.vjiazhi.shuiyinwang.ui.view.HorizontalListView
+            android:id="@+id/img_horizon_listview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizon_listview_height2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp" >
+        </com.vjiazhi.shuiyinwang.ui.view.HorizontalListView>
+    </LinearLayout>
+
+    <!--
+         <com.vjiazhi.shuiyinwang.widgets.ZoomableImageView
+        android:id="@+id/zoomable_imageview"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/second_horizon_layout"
+        android:layout_below="@+id/first_horizon_layout"
+        android:scaleType="matrix" />
+    -->
+
+    <com.vjiazhi.shuiyinwang.ui.view.WaterMarkImageView
+        android:id="@+id/iv_watermark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/second_horizon_layout"
+        android:layout_below="@+id/first_horizon_layout"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/second_horizon_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#00000000" >
+
+        <com.vjiazhi.shuiyinwang.ui.view.HorizontalListView
+            android:id="@+id/img_horizon_listview2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizon_listview_height"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp" >
+        </com.vjiazhi.shuiyinwang.ui.view.HorizontalListView>
+
+        <LinearLayout
+            android:id="@+id/layout_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_horizon_listview2"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" >
+
+                <Button
+                    android:id="@+id/shuiying"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/likeshuiyin_selector" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/shezhilayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/color"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/color_selector" />
+
+                <Button
+                    android:id="@+id/text"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/wenzi_selector" />
+
+                <Button
+                    android:id="@+id/position"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/position_selector" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

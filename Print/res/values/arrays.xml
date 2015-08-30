@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="load_type_items">
+        <item> 图库</item>
+        <item> 拍照</item>
+		<item> 多图处理</item>
+    </string-array>
+    
+  <string-array name="share_type_items">
+        <item> 微信好友</item>
+        <item> 微信朋友圈</item>
+        <item> 其他方式</item>
+
+    </string-array>
+</resources>

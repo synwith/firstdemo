@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/img_yinjibackground_layout"
+    android:layout_width="62dp"
+    android:layout_height="62dp"
+    android:background="#fff"
+    android:padding="2dp" >
+
+    <ImageView
+        android:id="@+id/img_list_yinjibackground_item"
+        android:layout_width="@dimen/thumnail_default_width"
+        android:layout_height="@dimen/thumnail_default_height" />
+</RelativeLayout>

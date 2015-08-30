@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="app_name">印它</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_img_main">印它</string>
+    <string name="load_img">加载</string>
+    <string name="save_share">分享</string>
+    <string name="save_select">多图</string>
+    <string name="text_title">文本</string>
+    <string name="text_color">颜色</string>
+    <string name="text_pos">位置</string>
+    <string name="text_size">尺寸</string>
+    <string name="text_set">设置</string>
+    <string name="title_color">颜色选择</string>
+    <string name="title_pos">水印位置</string>
+    <string name="title_watermark_txt">水印文本</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="img_already_saved">图片已保存到%s</string>
+    <string name="failed_to_save_img">图片保存失败，请检查存储空间</string>
+    <string name="waiting">请稍候...</string>
+    <string name="load_img_title">加载图片</string>
+    <string name="str_processing">正在加水印...</string>
+    <string name="str_syw_test">印它测试文字</string>
+    <string name="xiangce">印它图库</string>
+    <string name="caidan">菜单</string>
+    <string name="versin_name">1.0</string>
+    <string name="versin_n">version1.0</string>
+
+
+</resources>

@@ -1,0 +1,184 @@
+package com.vjiazhi.shuiyinwang.utils;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.vjiazhi.yinji.R;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.graphics.Bitmap.Config;
+import android.graphics.drawable.Drawable;
+import android.media.ThumbnailUtils;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+
+public class ImageUtil {
+	final static String WATERMARK_FONT_NAME = "宋体";
+	final static int WATERMARK_EXTRA_EDGE = 10; // 水印图像，基于文字尺寸再加上一些余量
+	final static int WATERMARK_MARGIN_RIGHT=10;
+	
+	private static int mColor = Color.RED;
+	private static String mScreenshotPath = Environment
+			.getExternalStorageDirectory() + "/zzdBitmap";
+
+	
+	/**
+	 * 文字生成bitmap，默认颜色为红色
+	 * @param text
+	 * @return
+	 */
+	public static Bitmap createBitmapFromText(String text, Typeface typeface){
+		return createBitmapFromText(Color.RED,text, typeface);
+	}
+	
+	/**
+	 * 文字生成bitmap
+	 * 
+	 * @param color
+	 * @param text
+	 * @return
+	 */
+	public static Bitmap createBitmapFromText(int color, String text , Typeface typeface){
+		mColor = color;
+		if(TextUtils.isEmpty(text)){
+			text = "by 印记";
+		}
+		Rect rect = new Rect();
+		Paint p = new Paint(Paint.ANTI_ALIAS_FLAG); //去除锯齿
+		Typeface font = null;
+		if(typeface == null)
+			font = Typeface.create(WATERMARK_FONT_NAME, Typeface.NORMAL);
+		else{
+			font = typeface;
+		}
+//		font =Typeface.createFromAsset(getAssets(),"fonts/HandmadeTypewriter.ttf");
+		p.setColor(mColor);
+		p.setTypeface(font);
+		p.setTextSize(40);
+
+		p.getTextBounds(text, 0, text.length(), rect);
+		
+		// 后续可能需要描边
+		int nMarkwidth = rect.width()+WATERMARK_MARGIN_RIGHT; // 原先是(int)(nSrcwidth*9.0/10.0);
+		int nMarkHeight = rect.height(); // 原先是(int)(nSrcHeight*1.0/10.0);
+		
+		Bitmap bmpWaterMark = Bitmap.createBitmap(nMarkwidth, nMarkHeight, Config.ARGB_8888);
+		Canvas canvasTemp = new Canvas(bmpWaterMark);
+
+		canvasTemp.drawColor(Color.TRANSPARENT);
+//		canvasTemp.drawBitmap(bitmap, matrix, p);
+
+		canvasTemp.drawText(text, 0, nMarkHeight - WATERMARK_EXTRA_EDGE, p);
+		
+		return bmpWaterMark;
+	}
+	
+	
+	//以下是保存逻辑
+	public static void saveScreenshot(View view) {
+		if (ensureSDCardAccess()) {
+			Bitmap bitmap = convertViewToBitmap(view);
+			File file = new File(mScreenshotPath + "/"
+					+ System.currentTimeMillis() + ".jpg");
+			FileOutputStream fos;
+			try {
+				fos = new FileOutputStream(file);
+				bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+				fos.close();
+			} catch (FileNotFoundException e) {
+				Log.e("Panel", "FileNotFoundException", e);
+			} catch (IOException e) {
+				Log.e("Panel", "IOEception", e);
+			}
+		}
+	}
+
+	/**
+	 * 把View上的元素画到Canvas上并转化成bitmap
+	 * 
+	 * @param view
+	 * @return
+	 */
+	private static Bitmap convertViewToBitmap(View view) {
+
+		Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
+				Bitmap.Config.ARGB_8888);
+		// 利用bitmap生成画布
+		Canvas canvas = new Canvas(bitmap);
+
+		// 把view中的内容绘制在画布上
+		view.draw(canvas);
+
+		return bitmap;
+	}
+
+	
+	/**
+	 * 文字生成bitmap放到另一张背景图片上
+	 * 
+	 * @param color
+	 * @param text
+	 * @return
+	 */
+	public static Bitmap createBitmapFromBitmap(int color, String text , Typeface typeface,Bitmap background){
+		mColor = color;
+		if(TextUtils.isEmpty(text)){
+			text = "by 印记";
+		}
+		Rect rect = new Rect();
+		Paint p = new Paint(Paint.ANTI_ALIAS_FLAG); //去除锯齿
+		Typeface font = null;
+		if(typeface == null)
+			font = Typeface.create(WATERMARK_FONT_NAME, Typeface.NORMAL);
+		else{
+			font = typeface;
+		}
+//		font =Typeface.createFromAsset(getAssets(),"fonts/HandmadeTypewriter.ttf");
+		p.setColor(mColor);
+		p.setTypeface(font);
+		p.setTextSize(40);
+
+		p.getTextBounds(text, 0, text.length(), rect);
+		
+		// 后续可能需要描边
+		int nMarkwidth = rect.width()+WATERMARK_MARGIN_RIGHT; // 原先是(int)(nSrcwidth*9.0/10.0);
+		int nMarkHeight = rect.height(); // 原先是(int)(nSrcHeight*1.0/10.0);
+//		
+//		Bitmap bmpWaterMark = Bitmap.createBitmap(nMarkwidth, nMarkHeight, Config.ARGB_8888);
+	
+
+		Bitmap bmpWaterMark = 	ThumbnailUtils.extractThumbnail(background,nMarkwidth,nMarkHeight);
+		Canvas canvasTemp = new Canvas(bmpWaterMark);
+
+		canvasTemp.drawColor(Color.TRANSPARENT);
+//		canvasTemp.drawBitmap(bitmap, matrix, p);
+
+		canvasTemp.drawText(text, 0, nMarkHeight - WATERMARK_EXTRA_EDGE, p);
+		
+		return bmpWaterMark;
+	}
+
+	/**
+	 * Helper method to ensure that the given path exists.
+	 * <p>
+	 * TODO: check external storage state
+	 */
+	private static boolean ensureSDCardAccess() {
+		File file = new File(mScreenshotPath);
+		if (file.exists()) {
+			return true;
+		} else if (file.mkdirs()) {
+			return true;
+		}
+		return false;
+	}
+}

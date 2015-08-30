@@ -1,0 +1,214 @@
+package com.vjiazhi.shuiyinwang.ui.multi_image.bean;
+
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.widget.Toast;
+import com.vjiazhi.shuiyinwang.utils.L;
+
+public class GetImageFolderSingleInstance {
+
+	private static GetImageFolderSingleInstance instance = null;
+	private static ArrayList<ImageFloder> mImageFloders = new ArrayList<ImageFloder>();
+	private static List<File> mImgs = new ArrayList<File>();
+	private static boolean HasFinishScan = false; // 标示是否已经扫描完成
+	private static int totalCount = 0;
+	private static long wasteTime = 0;
+
+	public static GetImageFolderSingleInstance Instance(Context context) {
+		if (instance == null) {
+			instance = new GetImageFolderSingleInstance();
+			instance.initImages(context);
+		}
+		return instance;
+	}
+
+	public boolean getFinishFlag() {
+		return HasFinishScan;
+	}
+
+	private void setFinishFlag(boolean flagTag) {
+		HasFinishScan = flagTag;
+	}
+
+	private void setWasteTime(long time) {
+		wasteTime = time;
+	}
+
+	public long getWsateTime() {
+		return wasteTime;
+	}
+
+	/**
+	 * 获取所有文件夹的ArrayList
+	 * 
+	 * @return
+	 */
+	public ArrayList<ImageFloder> getImageFolderArrayList() {
+		if (HasFinishScan)
+			return mImageFloders;
+		else
+			return null;
+	}
+
+	public List<File> getImgListFile() {
+		return mImgs;
+	}
+
+	/**
+	 * 获取所有目录的总图片数，还没扫描完则返回-1。
+	 * 
+	 * @return
+	 */
+	public int getTotalCount() {
+		if (HasFinishScan)
+			return totalCount;
+		else
+			return -1;
+	}
+
+	public void flashInit(final Context context) {
+		mImageFloders = new ArrayList<ImageFloder>();
+		mImgs = new ArrayList<File>();
+		HasFinishScan = false; // 标示是否已经扫描完成
+		totalCount = 0;
+		wasteTime = 0;
+		initImages(context);
+	}
+
+	private void initImages(final Context context) {
+		if (!Environment.getExternalStorageState().equals(
+				Environment.MEDIA_MOUNTED)) {
+			Toast.makeText(context, "暂无外部存储。", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				L.tb("run");
+				Uri mImageUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+				ContentResolver mContentResolver = context.getContentResolver();
+
+				// 只查询jpeg和png的图片
+				Cursor mCursor = mContentResolver.query(mImageUri, null,
+						MediaStore.Images.Media.MIME_TYPE + "=? or "
+								+ MediaStore.Images.Media.MIME_TYPE + "=?",
+						new String[] { "image/jpeg", "image/png" },
+						MediaStore.Images.Media.DATE_MODIFIED);
+				HashSet<String> mDirPaths = new HashSet<String>();
+				while (mCursor.moveToNext()) {
+					String path = mCursor.getString(mCursor
+							.getColumnIndex(MediaStore.Images.Media.DATA));
+					File file = new File(path);
+					if (!file.exists()) {
+						continue;
+					}
+					File parentFile = file.getParentFile();
+					if (parentFile == null)
+						continue;
+					String dirPath = parentFile.getAbsolutePath();
+					if (mDirPaths.contains(dirPath)) {
+						continue;
+
+					} else {
+						File[] files = getFilesFromDir(dirPath);
+						mDirPaths.add(dirPath);
+						// 初始化imageFloder
+						ImageFloder imageFloder = new ImageFloder();
+						imageFloder.setDir(dirPath);
+						imageFloder.setFirstImagePath(lastFileModified(files));
+						int picSize = files.length;
+						totalCount += picSize;
+						imageFloder.setCount(picSize);
+						if (picSize > 0)
+							mImageFloders.add(imageFloder);
+					}
+				}
+				mCursor.close();
+
+				for (int i = 0; i < mImageFloders.size(); i++) {
+					List<File> tempList = getArrayListFromDir(mImageFloders
+							.get(i).getDir());
+					mImgs.addAll(tempList);
+
+				}
+				collectionsSort(mImgs);
+				setFinishFlag(true);
+				setWasteTime(L.te("run"));
+
+			}
+		}).start();
+	}
+
+	public void collectionsSort(List<File> mImgs) {
+		Collections.sort(mImgs, new Comparator<File>() {
+			public int compare(File file, File newFile) {
+				if (file.lastModified() < newFile.lastModified()) {
+					return 1;
+				} else if (file.lastModified() == newFile.lastModified()) {
+					return 0;
+				} else {
+					return -1;
+				}
+
+			}
+		});
+	}
+
+	private File[] getFilesFromDir(String dir) {
+		File fl = new File(dir);
+		File[] files = fl.listFiles(new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String filename) {
+				if (filename.endsWith(".jpg") || filename.endsWith(".png")
+						|| filename.endsWith(".jpeg")) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		});
+		return files;
+	}
+
+	private List<File> getArrayListFromDir(String dir) {
+		File mImgDir = new File(dir);
+		return Arrays.asList(mImgDir.listFiles(new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String filename) {
+				if (filename.endsWith(".jpg") || filename.endsWith(".png")
+						|| filename.endsWith(".jpeg"))
+					return true;
+				return false;
+			}
+		}));
+	}
+
+	private String lastFileModified(File[] files) {
+		long lastMod = Long.MIN_VALUE;
+		File choise = null;
+		if (files == null || files.length == 0) {
+			return null;
+		}
+		for (File file : files) {
+			if (file.lastModified() > lastMod) {
+				choise = file;
+				lastMod = file.lastModified();
+			}
+		}
+		return choise.getAbsolutePath();
+	}
+
+}
